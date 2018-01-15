@@ -2,14 +2,18 @@ import cv2
 import serial
 #ser = serial.Serial('/dev/ttyACM0', 9600)
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(1)
 ret, img = cap.read()
 Center_x = 0
 val = 90
 while 1:
     center_x = []
     center_y = []
-    ret, img = cap.read()
+
+    while True:
+        ret, frame = cap.read()
+    if ret:
+        cv2.imshow('window', frame)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     faces = faceCascade.detectMultiScale(gray, 1.3, 5)
