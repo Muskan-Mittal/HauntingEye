@@ -2,7 +2,7 @@ import cv2
 import serial
 #ser = serial.Serial('/dev/ttyACM0', 9600)
 faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture()
 ret, img = cap.read()
 Center_x = 0
 val = 90
